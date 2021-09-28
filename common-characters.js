@@ -28,4 +28,9 @@ const characterMatch = (obj1, obj2) => {
 
 const commonCharacters = (string1, string2) => {
 
+  const otherStrings = Array.prototype.slice.call(arguments, 1);
+
+  const common = otherStrings.reduce( (obj, string) => {
+    obj = characterMatch(obj, stringToObject(string));
+  }, stringToOjbect(string1));
 }
