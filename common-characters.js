@@ -19,6 +19,12 @@ const stringToObject = string => (
 )
 
 //create object with only common characters from two objects
+const characterMatch = (obj1, obj2) => {
+  return Object.keys(obj1).reduce ( (match, key) => {
+    if ( key in obj2 ) match[key] = true;
+    return match;
+  }, {})
+}
 
 const commonCharacters = (string1, string2) => {
 
