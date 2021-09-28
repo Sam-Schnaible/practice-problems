@@ -26,11 +26,18 @@ const characterMatch = (obj1, obj2) => {
   }, {})
 }
 
-const commonCharacters = (string1, string2) => {
+const commonCharacters = (...strings) => {
 
-  const otherStrings = Array.prototype.slice.call(arguments, 1);
-
-  const common = otherStrings.reduce( (obj, string) => {
+  const common = strings.slice(1).reduce( (obj, string) => {
     obj = characterMatch(obj, stringToObject(string));
-  }, stringToOjbect(string1));
+    return obj;
+  }, stringToObject(strings[0]));
+
+  return strings[0].split('').reduce( (string, char) => {
+    if ( common[char]) {
+      string += char;
+      common[char] = false;
+    };
+    return string;
+  }, '')
 }
