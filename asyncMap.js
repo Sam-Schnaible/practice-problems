@@ -40,4 +40,16 @@
 const asyncMap => (tasks, callback) => {
   const resultsArray = [];
   const resultsCount = 0;
+
+  for (var i = 0; i < tasks.length; i++) {
+    (function (i) {
+      tasks[i](function (val) {
+        resultsArray[i] = val;
+        resultsCount++;
+        if (resultsCount === tasks.length) {
+          callback(resultsArray);
+        }
+      });
+    })(i);
+  }
 };
