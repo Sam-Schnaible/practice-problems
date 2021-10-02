@@ -37,5 +37,20 @@ const swap = (i, j, array) => {
 }
 
 const bubbleSort = array => {
+  let i = 0;
+  let j = array.length - 1;
 
+  while ( j > 0 ) {
+    if ( i === j ) {
+      i = 0;
+      j--;
+    }
+    if ( array[i] > array[i + 1] ) {
+      swap(i, j, array);
+      i++;
+    } else {
+      i++;
+    }
+  }
+  return array;
 }
