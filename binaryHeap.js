@@ -30,3 +30,16 @@ BinaryHeap.prototype.insert = function (node) {
     parentIndex = Math.floor( (index - 1) / 2);
   }
 };
+
+BinaryHeap.prototype.removeRoot = function () {
+  this._swap(this._heap.length - 1, 0, this);
+  var originalRoot = this._heap.pop();
+  var temporaryRootIndex = 0;
+  var lesserChildIndex = this._getLesserChildIndex(temporaryRootIndex);
+  while ( lesserChildIndex && this._compare(this._heap[lesserChildIndex], this._heap[temporaryRootIndex]) ) {
+    this._swap(lesserChildIndex, temporaryRootIndex, this);
+    temporaryRootIndex = lesserChildIndex;
+    lesserChildIndex = this._getLesserChildIndex(temporaryRootIndex);
+  }
+  return originalRoot;
+};
