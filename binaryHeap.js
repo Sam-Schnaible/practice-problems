@@ -43,3 +43,18 @@ BinaryHeap.prototype.removeRoot = function () {
   }
   return originalRoot;
 };
+
+BinaryHeap.prototype.maxIdx = function () {
+  return this._heap.length - 1;
+};
+
+BinaryHeap.prototype.sort = function () {
+  const copy = this._heap.slice(0);
+  let res = [];
+  const max = this.maxIdx();
+  for (var i = 0; i < max; i++) {
+    res.push(this.pop());
+  }
+  this.heap = copy;
+  return res;
+}
