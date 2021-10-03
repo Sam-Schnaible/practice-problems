@@ -19,3 +19,14 @@ BinaryHeap.prototype._swap = function (index, parentIndex) {
   this._heap[index] = this._heap[parentIndex];
   this._heap[parentIndex] = temp;
 };
+
+BinaryHeap.prototype.insert = function (node) {
+  this._heap.push(node);
+  var index = this._heap.length - 1;
+  var parentIndex = Math.floor( (index - 1) / 2 );
+  while ( index > 0 && ( this._compare(this._heap[index], this._heap[parentIndex]) ) ) {
+    this._swap(index, parentIndex, this);
+    index = parentIndex;
+    parentIndex = Math.floor( (index - 1) / 2);
+  }
+};
