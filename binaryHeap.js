@@ -13,3 +13,9 @@ BinaryHeap.prototype._getLesserChildIndex = function (parentIndex) {
     return childIndices[1];
   }
 };
+
+BinaryHeap.prototype._swap = function (index, parentIndex) {
+  var temp = this._heap[index];
+  this._heap[index] = this._heap[parentIndex];
+  this._heap[parentIndex] = temp;
+};
