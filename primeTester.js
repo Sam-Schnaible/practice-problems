@@ -4,10 +4,21 @@
  * a prime number, false if it's not.
  */
 
-var primeTester = function(n) {
+const primeTester = n => {
   if (typeof n !== 'number' || n < 1 || n % 1 !== 0) {
     return false;
   }
+
+  const upperLimit = Math.sqrt(Math.abs(n));
+  if (n === 1) {
+    return false;
+  }
+  for (var i = 2; i <= upperLimit; i++) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
 };
 
 
