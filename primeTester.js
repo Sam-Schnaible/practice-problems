@@ -26,12 +26,25 @@ const primeTester = n => {
  * in a user-specified range (inclusive).
  */
 
-var primeSieve = function (start, end) {
+const primeSieve = (start, end) => {
 
+  let current = 2;
+  let primes = range(0, end);
+
+  while (current < end) {
+    for ( let i = current + current; i <= end; i += current) {
+      primes[i] = null;
+    }
+    do {
+      current += 1;
+    } while (!primes[current] && current <= end);
+  }
 };
 
-var range = function (start, end) {
-  var result = [];
-  for (var i = start; i <= end; i++) { result.push(i); }
+const range = (start, end) => {
+  let result = [];
+  for (let i = start; i <= end; i++) {
+    result.push(i);
+  }
   return result;
 };
