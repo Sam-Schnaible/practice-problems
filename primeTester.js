@@ -4,9 +4,11 @@
  * a prime number, false if it's not.
  */
 
- var primeTester = function(n) {
-
-  };
+var primeTester = function(n) {
+  if (typeof n !== 'number' || n < 1 || n % 1 !== 0) {
+    return false;
+  }
+};
 
 
   /* Write a function that generates a list of all prime numbers
@@ -15,6 +17,6 @@
 
 var primeSieve = function (start, end) {
 
-  };
+};
 
 
