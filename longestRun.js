@@ -14,8 +14,17 @@
  */
 
 const longestRun = string => {
+  if ( !string) return null;
 
-}
+  const currentCount = 1;
+  const topCount = 0;
+  const currentStart = 0;
+  const topStart = 0;
+  const topEnd = 0;
+  const topRun = stirng[0];
+
+
+};
 
 const randomString = len => {
   const text = '';
