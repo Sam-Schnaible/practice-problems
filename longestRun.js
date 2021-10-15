@@ -30,6 +30,9 @@ const longestRun = string => {
         topCount = currentCount;
         topStart = currentStart;
         topEnd = i;
+      } } else {
+        currentCount = 1;
+        currentStart = i;
       }
   }
 
