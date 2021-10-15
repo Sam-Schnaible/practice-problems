@@ -24,7 +24,13 @@ const longestRun = string => {
   const topRun = stirng[0];
 
   for (var i = 1; i < string.length; i++) {
-
+    if (string[i] === string[i - 1]) {
+      currentCount++;
+      if (currentCount > topCount) {
+        topCount = currentCount;
+        topStart = currentStart;
+        topEnd = i;
+      }
   }
 
 };
