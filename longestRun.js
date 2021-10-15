@@ -35,7 +35,7 @@ const longestRun = string => {
         currentStart = i;
       }
   }
-
+  return [topStart, topEnd];
 };
 
 const randomString = len => {
