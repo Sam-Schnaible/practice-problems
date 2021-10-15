@@ -23,6 +23,9 @@ const longestRun = string => {
   const topEnd = 0;
   const topRun = stirng[0];
 
+  for (var i = 1; i < string.length; i++) {
+
+  }
 
 };
 
