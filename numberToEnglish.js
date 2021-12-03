@@ -88,7 +88,7 @@ Number.prototype.toEnglish = function () {
       place *= 10;
       decimalPart *= 10;
     } while (Math.floor(decimalPart) !== decimalPart);
-    var pluralize = decimalPart === 1 ? '' : 's';
+    var pluralize = decimalPart === 1 ? '' : 's';``
     decimalString = decimalPart.toEnglish() + ' ' + place.toEnglish().replace('one ', '').replace(/ /, '-') + 'th' + pluralize;
     if (output === 'zero') {
       output = decimalString;
@@ -98,3 +98,23 @@ Number.prototype.toEnglish = function () {
   }
   return output;
   };
+
+
+//HELPERS
+
+import React, { useState } from 'react';
+import axios from 'axios';
+
+export default const handleOnSubmit = async (e) => {
+  e.preventDefault();
+  await axios({
+    method: 'get',
+    url: `http://localhost:3000/customers/${customerID}`
+  })
+  .then( result => {
+    setCustomer(result.data);
+  })
+  .catch( err => {
+    console.log(err.response);
+  })
+}
