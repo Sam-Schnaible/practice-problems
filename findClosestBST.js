@@ -1,19 +1,19 @@
 //AlgoExpert
 
 function findClosestValueInBst(tree, target) {
-  return findCloses(tree, target, tree.value);
+  return findClosest(tree, target, tree.value);
 }
 
-const findCloses = (tree, target, close) => {
+const findClosest = (tree, target, close) => {
 	if ( tree === null ) return close;
 
 	if ( Math.abs(target - close) > Math.abs(target - tree.value)) {
 		close = tree.value;
 	}
 	if ( target > tree.value ) {
-		return findCloses(tree.right, target, close)
+		return findClosest(tree.right, target, close)
 	} else if ( target < tree.value ) {
-		return findCloses(tree.left, target, close);
+		return findClosest(tree.left, target, close);
 	} else {
 		return close;
 	}
